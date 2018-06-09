@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :boards, only: [:show, :create] do
+    resources :lists, only: [:create, :destroy]
+  end
+
+  resources :cards, only: [:create, :update, :destroy, :move]
 end
