@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-  validaes :title, presence: true
+  validates :title, presence: true
   
   belongs_to :list
 end

@@ -2,6 +2,9 @@ class CardsController < ApplicationController
 
   before_action :set_card, except: :create
 
+  def show
+  end
+
   def create
     @card = Card.new(card_params)
 

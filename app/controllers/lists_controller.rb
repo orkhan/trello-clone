@@ -1,8 +1,11 @@
 class ListsController < ApplicationController
 
   before_action :set_board
-  before_action :set_list, only: :destroy
+  before_action :set_list, only: [:show, :destroy]
 
+  def show
+  end
+  
   def create
     @list = @board.lists.new(list_params)
 
