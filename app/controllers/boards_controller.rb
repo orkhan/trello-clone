@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
   private
 
     def set_board
-      @board = Board.find_by_uid(params[:id])
+      @board = Board.includes(lists: :cards).find_by_uid(params[:id])
     end
     
 

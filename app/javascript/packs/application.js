@@ -1,10 +1,31 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import NProgress from "nprogress";
+import Element from 'element-ui'
 
-console.log('Hello World from Webpacker')
+// Install Plugins
+Vue.use(NProgress);
+
+// Setup Configs
+Vue.config.productionTip = false;
+
+// Router
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  next()
+});
+
+router.afterEach(() => {
+  NProgress.done()
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Vue({
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>',
+    render: h => h(App)
+  });
+})

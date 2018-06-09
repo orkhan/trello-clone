@@ -5,11 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': false %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': false %>
+
+    <%= stylesheet_pack_tag 'App' %>
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
