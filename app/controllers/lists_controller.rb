@@ -1,13 +1,12 @@
 class ListsController < ApplicationController
 
-  before_action :set_board
-  before_action :set_list, only: [:show, :destroy]
+  before_action :set_list, except: :create
 
   def show
   end
   
   def create
-    @list = @board.lists.new(list_params)
+    @list = List.new(list_params)
 
     respond_to do |format|
       if @list.save
@@ -27,15 +26,11 @@ class ListsController < ApplicationController
 
   private
 
-    def set_board
-      @board = Board.find_by_uid(params[:board_id])
-    end
-
     def set_list
-      @list = @board.lists.find(params[:id])
+      @list = List.find(params[:id])
     end
     
     def list_params
-      params.require(:list).permit(:name)
+      params.require(:list).permit(:board_id, :name)
     end
 end
