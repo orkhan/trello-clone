@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  config.web_socket_server_url = "wss://warm-temple-11314.herokuapp.com/cable" 
+
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
