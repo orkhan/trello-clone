@@ -1,5 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Trello</a>
+        </div>
+      </div>
+    </nav>
     <router-view/>
   </div>
 </template>

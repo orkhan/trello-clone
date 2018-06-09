@@ -4,5 +4,5 @@ class Board < ApplicationRecord
   validates :name, presence: true
   validates :uid, uniqueness: true
 
-  has_many :lists
+  has_many :lists, -> { newest }
 end

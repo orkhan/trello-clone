@@ -34,10 +34,6 @@ class CardsController < ApplicationController
     end
   end
 
-  def move
-    @card.update(card_params)
-  end
-
   private
 
     def set_card

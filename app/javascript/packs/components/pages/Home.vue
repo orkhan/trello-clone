@@ -1,8 +1,11 @@
 <template>
-  <div class="home-page">
+  <div class="row col-xs-12 home-page">
     <h2>Please type board name</h2>
-    <input type="text" v-model="name" @keyup.enter="createBoard()"/>
-    <button @click="createBoard()">Create Board</button>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" v-model="name" id="name" @keyup.enter="createBoard()" class="form-control" />
+    </div>
+    <button @click="createBoard()" class="btn btn-primary">Create Board</button>
   </div>
 </template>
 
@@ -18,10 +21,10 @@
     },
     components: {
     },
-    mounted(){
+    mounted() {
     },
-    methods:{
-      createBoard(){
+    methods: {
+      createBoard() {
         HTTP({
           method: 'post',
           url: '/boards.json',
